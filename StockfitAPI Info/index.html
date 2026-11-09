@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FinSight | Company Research</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js" defer></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="index.html">🌿 FinSight</a>
+    <nav aria-label="Main navigation"><a class="active" href="index.html">Home</a><a href="about.html">About</a><a href="help.html">Help</a></nav>
+  </header>
+  <main class="container">
+    <section class="hero">
+      <p class="eyebrow">INST377 • Financial Research</p>
+      <h1>Company research, made simple.</h1>
+      <p>Explore public company information, financial performance, and reported insider stock transactions.</p>
+      <form id="search-form" class="search-form">
+        <label for="ticker">Company stock symbol</label>
+        <div class="search-row"><input id="ticker" name="ticker" placeholder="Try AAPL, MSFT, or NVDA" maxlength="12" required autocomplete="off"><button type="submit">Search</button></div>
+      </form>
+      <p class="small">Search by ticker symbol (for example, AAPL for Apple).</p>
+    </section>
+
+    <p id="status" class="status" role="status" aria-live="polite"></p>
+
+    <section id="results" class="hidden" aria-label="Company research results">
+      <div class="section-head"><div><p class="eyebrow">Company overview</p><h2 id="company-name">Company</h2><p id="company-subtitle" class="muted"></p></div><button id="save-btn" class="outline" type="button">☆ Save company</button></div>
+      <div class="metrics"><article class="metric"><span>Symbol</span><strong id="metric-symbol">—</strong></article><article class="metric"><span>Sector</span><strong id="metric-sector">—</strong></article><article class="metric"><span>Industry</span><strong id="metric-industry">—</strong></article></div>
+      <section class="panel"><h2>Financial performance</h2><p class="muted">Annual revenue and net income from SEC filing data.</p><div class="chart-container"><canvas id="financial-chart" aria-label="Annual revenue and net income bar chart" role="img"></canvas></div><p id="financial-message" class="muted"></p></section>
+      <section class="panel"><h2>Insider transactions</h2><p class="muted">Reported officer and director transactions. A sale does not necessarily indicate wrongdoing.</p><div class="table-scroll"><table><thead><tr><th>Date</th><th>Insider</th><th>Action</th><th>Shares</th><th>Value</th><th>SEC filing</th></tr></thead><tbody id="trades-body"></tbody></table></div><p id="trades-message" class="muted"></p></section>
+    </section>
+    <section class="panel" id="saved-panel"><h2>Saved companies</h2><p class="muted">Your saved ticker symbols, stored in Supabase.</p><div id="saved-list" class="saved-list"></div><p id="saved-message" class="muted"></p></section>
+  </main>
+  <footer>FinSight • Educational project • Not financial advice • Data from StockFit / SEC filings</footer>
+</body>
+</html>

@@ -1,0 +1,8 @@
+{
+  "name": "finsight-inst377",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": { "dev": "vercel dev" },
+  "devDependencies": { "vercel": "^48.0.0" }
+}
